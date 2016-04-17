@@ -1,11 +1,11 @@
 <?php
 class courses_PolosUAB{
 	
-	$id_course;
-	$name_course;
-	$type_course;
-	$year_course;//inserted now to link with offers of the polo by year
-	$students_course;//how many students per course
+	private $id_course;
+	private $name_course;
+	private $type_course;
+	private $year_course;//inserted now to link with offers of the polo by year
+	private $students_course;//how many students per course
 		
 	public function __construct($id_course, $name_course, $type_course, $year_course, $students_course){
 		$this->set_courseId($id_course);
@@ -40,23 +40,23 @@ class courses_PolosUAB{
 	
 	
 	public function get_courseId (){
-		echo $id_course;
+		return $this->id_course;
 	}
 	
 	public function get_courseName (){
-		echo $name_course;
+		return $this->name_course;
 	}
 	
 	public function get_coursetype (){
-		echo $type_course;
+		return $this->type_course;
 	}
 	
 	public function get_type(){
-		echo $type_course;
+		return $this->type_course;
 	}
 	
 	public function get_students(){
-		echo $students_course;
+		return $this->students_course;
 	}
 	
 }

@@ -1,12 +1,12 @@
 <?php
 class users_PolosUAB{
 	
-	$id_user;
-	$name_user;
-	$lastName_user;
-	$login_user;//nickname or e-mail???
-	$type_user;//if the user is a common user or a privileged user
-	$password_user;
+	private $id_user;
+	private $name_user;
+	private $lastName_user;
+	private $login_user;//nickname or e-mail???
+	private $type_user;//if the user is a common user or a privileged user
+	private $password_user;
 	
 		
 	public function __construct($id_user, $name_user, $lastName_user, $login_user $type_user, $password_user, $lat_user, $uf_user){
@@ -47,28 +47,27 @@ class users_PolosUAB{
 	
 	
 	public function get_userId (){
-		echo $id_user;
+		return $this->id_user;
 	}
 	
 	public function get_userName (){
-		echo $name_user;
+		return $this->name_user;
 	}
 	
 	public function get_userlastName (){
-		echo $lastName_user;
-		
+		return $this->lastName_user;
 	}
 	
 	public function get_userLogin(){
-		echo $login_user;
+		return $this->login_user;
 	}
 		
 	public function get_type(){
-		echo $type_user;
+		return $this->type_user;
 	}
 	
 	public function get_password(){
-		echo $password_user;
+		return $this->password_user;
 	}
 	
 }

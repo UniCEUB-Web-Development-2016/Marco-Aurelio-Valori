@@ -1,14 +1,14 @@
 <?php
 class PolosUAB{
 	
-	$id_polo;
-	$name_polo;
-	$status_polo;
-	$situation_polo;
-	$log_polo;
-	$lat_polo;
-	$uf_polo;
-	$year_polo;
+	private $id_polo;
+	private $name_polo;
+	private $status_polo;
+	private $situation_polo;
+	private $log_polo;
+	private $lat_polo;
+	private $uf_polo;
+	private $year_polo;
 	
 	
 	
@@ -60,34 +60,35 @@ class PolosUAB{
 	
 		
 	public function get_poloId (){
-		echo $id_polo;
+		return $this->id_polo;
+		
 	}
 	
 	public function get_poloName (){
-		echo $name_polo;
+		return $this->name_polo;
 	}
 	
 	public function get_polostatus (){
-		echo $status_polo;
+		return $this->status_polo;
 	}
 	
 	public function get_situation(){
-		echo $situation_polo;
+		return $this->situation_polo;
 	}
 	
 	public function get_long(){
-		echo $long_polo;
+		return $this->long_polo;
 	}
 	
 	public function get_lat(){
-		echo $lat_polo;
+		return $this->lat_polo;
 	}
 	
 	public function get_uf(){
-		echo $uf_polo;
+		return $this->uf_polo;
 	}
 	
 	public function get_year(){
-		echo $year_polo;
+		return $this->year_polo;
 	}
 }
