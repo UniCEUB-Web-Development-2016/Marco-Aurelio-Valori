@@ -11,7 +11,7 @@ class Courses_Controller
 								$params["name"],
 								$params["type"],
 								$params["year"],
-								$params["students"];
+								$params["students"]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		
