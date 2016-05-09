@@ -26,7 +26,7 @@ class UserController
 					 $user->get_last_name()."','".
 					 $user->get_email()."','".
 					 $user->get_nickname()."','".
-					 $user->get_type()."','".,
+					 $user->get_type()."','".
 					 $user->get_pass()."','".;
 		return $query;					
 	}
