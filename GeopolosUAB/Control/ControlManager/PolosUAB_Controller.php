@@ -13,8 +13,8 @@ class polosUABController
 								 $params["situation"],
 								 $params["long"],
 								 $params["lat"],
-								 $params[uf]),
-								 $params[year];
+								 $params[uf],
+								 $params[year]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		
