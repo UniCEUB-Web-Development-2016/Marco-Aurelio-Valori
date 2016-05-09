@@ -24,7 +24,7 @@ class Courses_Controller
 					 $courses->get_name()."','".
 					 $courses->get_type()."','".
 					 $courses->get_year()."','".
-					 $courses->get_students()."','".;
+					 $courses->get_students();
 		return $query;
 	}
 	
