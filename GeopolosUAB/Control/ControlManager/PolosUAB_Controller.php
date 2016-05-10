@@ -28,7 +28,7 @@ class polosUABController
 					 $polosuab->get_status()."','".
 					 $polosuab->get_situation()."','".
 					 $polosuab->get_long()."','".
-					 $polosuab->get_lat()."','".,
+					 $polosuab->get_lat()."','".
 					 $polosuab->get_uf()."','".
 					 $polosuab->get_year()."','".;
 		return $query;
