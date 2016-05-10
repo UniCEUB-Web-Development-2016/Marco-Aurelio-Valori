@@ -53,7 +53,7 @@ class PolosUAB{
 		$this->uf_polo = $uf_polo;
 	}
 	
-	private functio set_year($year_polo){
+	private function set_year($year_polo){
 		$this->year_polo = $year_polo;
 	}
 	
