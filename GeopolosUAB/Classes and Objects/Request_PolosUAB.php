@@ -50,5 +50,5 @@ class Request_PolosUAB
 	{
 		return $this->uri;
 	}
-+	
-+} 
+	
+ } 
