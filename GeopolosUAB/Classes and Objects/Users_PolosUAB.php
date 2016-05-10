@@ -4,12 +4,12 @@ class users_PolosUAB{
 	private $id_user;
 	private $name_user;
 	private $lastName_user;
-	private $login_user;//nickname or e-mail???
-	private $type_user;//if the user is a common user or a privileged user
+	private $login_user;
+	private $type_user;
 	private $password_user;
 	
 		
-	public function __construct($id_user, $name_user, $lastName_user, $login_user $type_user, $password_user, $lat_user, $uf_user){
+	public function__construct($id_user, $name_user, $lastName_user, $login_user $type_user, $password_user, $lat_user, $uf_user){
 		$this->set_userId($id_user);
 		$this->set_userName($name_user);
 		$this->set_userlastName($lastName_user);
