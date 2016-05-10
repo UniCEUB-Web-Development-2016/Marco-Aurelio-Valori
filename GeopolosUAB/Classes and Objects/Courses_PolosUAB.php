@@ -29,8 +29,8 @@ class courses_PolosUAB{
 		$this->type_course = $type_course;
 	}
 	
-	private function set_type($type_course){
-		$this->type_course = $type_course;
+	private function set_year($year_course){
+		$this->year_course = $year_course;
 	}
 	
 	private function set_students($students_course){
@@ -51,8 +51,8 @@ class courses_PolosUAB{
 		return $this->type_course;
 	}
 	
-	public function get_type(){
-		return $this->type_course;
+	public function get_year(){
+		return $this->year_course;
 	}
 	
 	public function get_students(){
