@@ -5,7 +5,7 @@ class PolosUAB{
 	private $name_polo;
 	private $status_polo;
 	private $situation_polo;
-	private $log_polo;
+	private $long_polo;
 	private $lat_polo;
 	private $uf_polo;
 	private $year_polo;
