@@ -1,7 +1,6 @@
 <?php
 include_once "model/Request.php";
 include_once "model/User.php";
-//include_once "database/DatabaseConnector.php";
 class UserController
 {
 	public function register($request)
@@ -35,11 +34,7 @@ class UserController
 	{
 		$params = $request->get_params();
 		$crit = $this->generateCriteria($params);
-		//$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
-		//$conn = $db->getConnection();
 		$result = "SELECT name, last_name, email, nickname, type FROM User WHERE ".$crit;
-		//foreach($result as $row)
-		//return $result->fetchAll(PDO::FETCH_ASSOC);
 		return $result;
 	}
 	private function generateCriteria($params) 
