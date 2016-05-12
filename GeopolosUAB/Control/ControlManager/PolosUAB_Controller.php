@@ -30,28 +30,27 @@ class polosUABController
 					 $polosuab->get_long()."','".
 					 $polosuab->get_lat()."','".
 					 $polosuab->get_uf()."','".
-					 $polosuab->get_year()."','".;
+					 $polosuab->get_year()."','";
 		return $query;
 	}
 	
 	public function search($request)
-+	{
-+		$params = $request->get_params();
-+		$crit = $this->generateCriteria($params);
-+		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
-+		$conn = $db->getConnection();
-+		$result = $conn->query("SELECT id, name, status, situation, long, lat, uf, year FROM PolosUAB WHERE ".$crit);
-+		//foreach($result as $row) 
-+		return $result->fetchAll(PDO::FETCH_ASSOC);
-+	}
-+
-+	private function generateCriteria($params) 
-+	{
-+		$criteria = "";
-+		foreach($params as $key => $value)
-+		{
-+			$criteria = $criteria.$key." LIKE '%".$value."%' OR ";
-+		}
-+		return substr($criteria, 0, -4);	
-+	}
+	{
+		$params = $request->get_params();
+		$crit = $this->generateCriteria($params);
+		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
+		$conn = $db->getConnection();		$result = $conn->query("SELECT id, name, status, situation, long, lat, uf, year FROM PolosUAB WHERE ".$crit);
+		//foreach($result as $row) 
+		return $result->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	private function generateCriteria($params) 
+	{
+		$criteria = "";
+		foreach($params as $key => $value)
+		{
+			$criteria = $criteria.$key." LIKE '%".$value."%' OR ";
+		}
+		return substr($criteria, 0, -4);	
+	}
 }
