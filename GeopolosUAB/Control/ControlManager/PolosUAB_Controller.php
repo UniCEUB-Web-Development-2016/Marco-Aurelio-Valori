@@ -39,8 +39,9 @@ class polosUABController
 		$params = $request->get_params();
 		$crit = $this->generateCriteria($params);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
-		$conn = $db->getConnection();		$result = $conn->query("SELECT id, name, status, situation, long, lat, uf, year FROM PolosUAB WHERE ".$crit);
-		//foreach($result as $row) 
+		$conn = $db->getConnection();		
+		$result = $conn->query("SELECT id, name, status, situation, long, lat, uf, year FROM PolosUAB WHERE ".$crit);
+		
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 	}
 
