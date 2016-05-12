@@ -47,3 +47,4 @@ class UserController
 		return substr($criteria, 0, -4);	
 	}
 	
+}
