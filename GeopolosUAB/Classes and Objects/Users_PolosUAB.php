@@ -4,17 +4,17 @@ class users_PolosUAB{
 	private $id_user;
 	private $name_user;
 	private $lastName_user;
-	private $login_user;
+	private $nickname;
 	private $type_user;
 	private $password_user;
 	
 		
-	public function __construct($id_user, $name_user, $lastName_user, $login_user $type_user, 
+	public function __construct($id_user, $name_user, $lastName_user, $nickname $type_user, 
 		$password_user){
 		$this->set_userId($id_user);
 		$this->set_userName($name_user);
 		$this->set_userlastName($lastName_user);
-		$this->set_userLogin($login_user);
+		$this->set_nickname($nickname);
 		$this->set_type($type_user);
 		$this->set_password($password_user);
 	}
@@ -33,8 +33,8 @@ class users_PolosUAB{
 		$this->lastName_user = $lastName_user;
 	}
 	
-	private function set_userLogin ($login_user){
-		$this->login_user = $login_user;
+	private function set_nickname ($nickname){
+		$this->nickname = $nickname;
 	}
 	
 	private function set_type($type_user){
@@ -59,8 +59,8 @@ class users_PolosUAB{
 		return $this->lastName_user;
 	}
 	
-	public function get_userLogin(){
-		return $this->login_user;
+	public function get_nickname(){
+		return $this->nickname;
 	}
 		
 	public function get_type(){
