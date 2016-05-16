@@ -7,6 +7,8 @@ class polosUABController
 	public function register($request)
 	{
 		$params = $request->get_params();
+		if($this->isEmpty($params) == true)
+		{
 		$polosuab = new Polosuab($params["id"],
 								 $params["name"],
 								 $params["status"],
@@ -17,10 +19,29 @@ class polosUABController
 								 $params[year]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
-		
-		
-	    return $this->generateInsertQuery($polosuab);
+		return $conn->query($this->generateInsertQuery($courses));
+		} else {
+			return "There are empty fields!!!";
+		}
 	}
+	
+	private function isEmpty($params)
+	{
+		if($this->compare($params) == null)
+		{
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	private function compare($params)
+	{
+		$paramsMap = ["name" => "", "type" => "", "year" => "", "students" => ""];
+		$result = array_diff_key($paramsMap, $params);
+		return $result;
+	}
+	
 	private function generateInsertQuery($polosuab)
 	{
 		$query =  	"INSERT INTO PolosUAB (id, name, status, situation, long, lat, uf, year) VALUES ('".$polosuab->get_id()."','".
@@ -37,14 +58,17 @@ class polosUABController
 	public function search($request)
 	{
 		$params = $request->get_params();
+		if($this->isEmpty($params) == true)
+	{
 		$crit = $this->generateCriteria($params);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();		
 		$result = $conn->query("SELECT id, name, status, situation, long, lat, uf, year FROM PolosUAB WHERE ".$crit);
-		
 		return $result->fetchAll(PDO::FETCH_ASSOC);
+		}else {
+		return "There are empty fields!!!";
 	}
-
+	}
 	private function generateCriteria($params) 
 	{
 		$criteria = "";
@@ -53,5 +77,14 @@ class polosUABController
 			$criteria = $criteria.$key." LIKE '%".$value."%' OR ";
 		}
 		return substr($criteria, 0, -4);	
+	}
+			private function deleteCriteria($params) 
+	{
+		$criteria = "";
+		foreach($params as $key => $value)
+		{
+			$criteria = $criteria.$key." LIKE '".$value."' AND ";
+		}
+		return substr($criteria, 0, -5);
 	}
 }
