@@ -49,11 +49,14 @@ class Courses_Controller
 	public function search($request)
 	{
 		$params = $request->get_params();
+		if($this->isEmpty($params) == true)
+	}
 		$crit = $this->generateCriteria($params);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		$result = $conn->query("SELECT id, name, type, year, students FROM Courses WHERE ".$crit);
-		return $result->fetchAll(PDO::FETCH_ASSOC);else {
+		return $result->fetchAll(PDO::FETCH_ASSOC);
+		}else {
 			return "Ha campos vazios";
 		}
 	}
