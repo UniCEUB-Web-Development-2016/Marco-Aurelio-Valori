@@ -1,5 +1,5 @@
 <?php
-include_once "model/Request.php";
+include_once "GeopolosUAB/Classes and Objects/Request_PolosUAB.php";
 include_once "Control/ControlManager/UserController.php";
 include_once "Control/ControlManager/PolosUAB_Controller.php";
 include_once "Control/ControlManager/Courses_Controller.php";
