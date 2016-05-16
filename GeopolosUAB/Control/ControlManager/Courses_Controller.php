@@ -5,18 +5,36 @@ include_once "database/DatabaseConnector.php";
 class Courses_Controller
 {
 	public function register($request)
-	{
+	{	
 		$params = $request->get_params();
-		$courses = new Courses($params["id"],
-								$params["name"],
-								$params["type"],
-								$params["year"],
-								$params["students"]);
+		if($this->isEmpty($params) == true)
+		{
+			$courses = new Courses($params["id"],$params["name"],$params["type"],$params["year"],$params["students"]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
+		return $conn->query($this->generateInsertQuery($courses));
+		} else {
+			return "There are empty fields!!!";
+		}
+	}
+	
+	private function isEmpty($params)
+	{
+		if($this->compare($params) == null)
+		{
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	private function compare($params)
+	{
+		$paramsMap = ["name" => "", "type" => "", "year" => "", "students" => ""];
+		$result = array_diff_key($paramsMap, $params);
+		return $result;
+	}
 		
-		
-	    return $this->generateInsertQuery($courses);
 	}
 	private function generateInsertQuery($courses)
 	{
@@ -35,8 +53,25 @@ class Courses_Controller
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		$result = $conn->query("SELECT id, name, type, year, students FROM Courses WHERE ".$crit);
-		//foreach($result as $row) 
-		return $result->fetchAll(PDO::FETCH_ASSOC);
+		return $result->fetchAll(PDO::FETCH_ASSOC);else {
+			return "Ha campos vazios";
+		}
+	}
+	
+	public function ReqDelete($request)
+	{
+		$params = $request->get_params();
+		if($this->isEmpty($params) == true)
+		{
+			$crit = $this->deleteCriteria($params);
+			$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
+			$conn = $db->getConnection();
+			$result = $conn->query("DELETE FROM courses WHERE ".$crit);
+			return $result->fetchAll(PDO::FETCH_ASSOC);
+		} else{
+			return "There are empty fields!!!";
+		}
+	}
 	}
 
 	private function generateCriteria($params) 
@@ -48,4 +83,13 @@ class Courses_Controller
 		}
 		return substr($criteria, 0, -4);	
 	}
+		private function deleteCriteria($params) 
++	{
++		$criteria = "";
++		foreach($params as $key => $value)
++		{
++			$criteria = $criteria.$key." LIKE '".$value."' AND ";
++		}
++		return substr($criteria, 0, -5);
++	}
 }
