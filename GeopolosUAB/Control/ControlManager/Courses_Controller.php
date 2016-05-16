@@ -84,12 +84,12 @@ class Courses_Controller
 		return substr($criteria, 0, -4);	
 	}
 		private function deleteCriteria($params) 
-+	{
-+		$criteria = "";
-+		foreach($params as $key => $value)
-+		{
-+			$criteria = $criteria.$key." LIKE '".$value."' AND ";
-+		}
-+		return substr($criteria, 0, -5);
-+	}
+	{
+		$criteria = "";
+		foreach($params as $key => $value)
+		{
+			$criteria = $criteria.$key." LIKE '".$value."' AND ";
+		}
+		return substr($criteria, 0, -5);
+	}
 }
