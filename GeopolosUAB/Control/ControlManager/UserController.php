@@ -1,6 +1,6 @@
 <?php
 include_once "GeopolosUAB/Classes and Objects/Request.php";
-include_once "GeopolosUAB/Classes and Objects/User.php";
+include_once "GeopolosUAB/Classes and Objects/Users_PolosUAB.php";
 class UserController
 {
 	public function register($request)
