@@ -1,5 +1,5 @@
 <?php
-include_once "model/Request.php";
+include_once "GeopolosUAB/Classes and Objects/Request_PolosUAB.php";
 class RequestController
 {
 	public function createRequest($protocol, $method, $uri, $server_addr)
