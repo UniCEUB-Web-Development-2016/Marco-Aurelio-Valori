@@ -1,7 +1,7 @@
 <?php
-include_once "model/Request.php";
-include_once "model/Courses_PolosUAB.php";
-include_once "database/DatabaseConnector.php";
+include_once "GeopolosUAB/Classes and Objects/Request_PolosUAB.php";
+include_once "GeopolosUAB/Classes and Objects/Courses_PolosUAB.php";
+include_once "GeopolosUAB/Control/ControlManager/DatabaseConnector.php";
 class Courses_Controller
 {
 	public function register($request)
