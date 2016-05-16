@@ -57,7 +57,7 @@ class Courses_Controller
 		$result = $conn->query("SELECT id, name, type, year, students FROM Courses WHERE ".$crit);
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 		}else {
-			return "Ha campos vazios";
+			return "There are empty fields!!!";
 		}
 	}
 	
