@@ -1,15 +1,22 @@
 <?php
-include_once "GeopolosUAB/Classes and Objects/Request_PolosUAB.php";
-include_once "GeopolosUAB/Classes and Objects/Courses_PolosUAB.php";
-include_once "GeopolosUAB/Control/ControlManager/DatabaseConnector.php";
-class Courses_Controller
+include_once "GeopolosUAB/Classes/Request_PolosUAB.php";
+include_once "GeopolosUAB/Classes/PolosUAB.php";
+include_once "GeopolosUAB/Control/DatabaseConnector.php";
+class polosUABController
 {
 	public function register($request)
-	{	
+	{
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
 		{
-			$courses = new Courses($params["id"],$params["name"],$params["type"],$params["year"],$params["students"]);
+		$polosuab = new Polosuab($params["id"],
+								 $params["name"],
+								 $params["status"],
+								 $params["situation"],
+								 $params["long"],
+								 $params["lat"],
+								 $params[uf],
+								 $params[year]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		return $conn->query($this->generateInsertQuery($courses));
@@ -34,15 +41,17 @@ class Courses_Controller
 		$result = array_diff_key($paramsMap, $params);
 		return $result;
 	}
-		
-	}
-	private function generateInsertQuery($courses)
+	
+	private function generateInsertQuery($polosuab)
 	{
-		$query =  	"INSERT INTO Courses (id, name, type, year, students) VALUES ('".$courses->get_id()."','".
-					 $courses->get_name()."','".
-					 $courses->get_type()."','".
-					 $courses->get_year()."','".
-					 $courses->get_students();
+		$query =  	"INSERT INTO PolosUAB (id, name, status, situation, long, lat, uf, year) VALUES ('".$polosuab->get_id()."','".
+					 $polosuab->get_name()."','".
+					 $polosuab->get_status()."','".
+					 $polosuab->get_situation()."','".
+					 $polosuab->get_long()."','".
+					 $polosuab->get_lat()."','".
+					 $polosuab->get_uf()."','".
+					 $polosuab->get_year()."','";
 		return $query;
 	}
 	
@@ -50,33 +59,16 @@ class Courses_Controller
 	{
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
-	}
+	{
 		$crit = $this->generateCriteria($params);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
-		$conn = $db->getConnection();
-		$result = $conn->query("SELECT id, name, type, year, students FROM Courses WHERE ".$crit);
+		$conn = $db->getConnection();		
+		$result = $conn->query("SELECT id, name, status, situation, long, lat, uf, year FROM PolosUAB WHERE ".$crit);
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 		}else {
-			return "There are empty fields!!!";
-		}
-	}
-	
-	public function ReqDelete($request)
-	{
-		$params = $request->get_params();
-		if($this->isEmpty($params) == true)
-		{
-			$crit = $this->deleteCriteria($params);
-			$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
-			$conn = $db->getConnection();
-			$result = $conn->query("DELETE FROM courses WHERE ".$crit);
-			return $result->fetchAll(PDO::FETCH_ASSOC);
-		} else{
-			return "There are empty fields!!!";
-		}
+		return "There are empty fields!!!";
 	}
 	}
-
 	private function generateCriteria($params) 
 	{
 		$criteria = "";
@@ -86,7 +78,7 @@ class Courses_Controller
 		}
 		return substr($criteria, 0, -4);	
 	}
-		private function deleteCriteria($params) 
+			private function deleteCriteria($params) 
 	{
 		$criteria = "";
 		foreach($params as $key => $value)

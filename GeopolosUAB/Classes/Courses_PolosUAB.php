@@ -4,8 +4,8 @@ class courses_PolosUAB{
 	private $id_course;
 	private $name_course;
 	private $type_course;
-	private $year_course;//inserted now to link with offers of the polo by year
-	private $students_course;//how many students per course
+	private $year_course;
+	private $students_course;
 		
 	public function __construct($id_course, $name_course, $type_course, $year_course, $students_course){
 		$this->set_courseId($id_course);

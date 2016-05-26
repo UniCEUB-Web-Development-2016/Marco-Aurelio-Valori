@@ -1,6 +1,6 @@
 <?php
-include "GeopolosUAB/Control/ControlManager/RequestController.php";
-include "GeopolosUAB/Control/ControlManager/ResourceController.php";
+include "GeopolosUAB/Control/RequestController.php";
+include "GeopolosUAB/Control/ResourceController.php";
 class ControlManager
 {
 	private $resourceController;

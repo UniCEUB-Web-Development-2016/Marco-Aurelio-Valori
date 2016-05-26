@@ -1,28 +1,26 @@
 <?php
-include_once "GeopolosUAB/Classes and Objects/Request_PolosUAB.php";
-include_once "GeopolosUAB/Classes and Objects/PolosUAB.php";
-include_once "GeopolosUAB/Control/ControlManager/DatabaseConnector.php";
-class polosUABController
+include_once "GeopolosUAB/Classes/Request_PolosUAB.php";
+include_once "GeopolosUAB/Classes/Users_PolosUAB.php";
+class UserController
 {
 	public function register($request)
 	{
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
 		{
-		$polosuab = new Polosuab($params["id"],
-								 $params["name"],
-								 $params["status"],
-								 $params["situation"],
-								 $params["long"],
-								 $params["lat"],
-								 $params[uf],
-								 $params[year]);
+		$user = new User($params["name"],
+				 $params["last_name"],
+				 $params["email"],
+				 $params["nickname"],
+				 $params["type"],
+				 $params["pass"]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		return $conn->query($this->generateInsertQuery($courses));
 		} else {
 			return "There are empty fields!!!";
 		}
+		
 	}
 	
 	private function isEmpty($params)
@@ -42,17 +40,16 @@ class polosUABController
 		return $result;
 	}
 	
-	private function generateInsertQuery($polosuab)
+	private function generateInsertQuery($user)
 	{
-		$query =  	"INSERT INTO PolosUAB (id, name, status, situation, long, lat, uf, year) VALUES ('".$polosuab->get_id()."','".
-					 $polosuab->get_name()."','".
-					 $polosuab->get_status()."','".
-					 $polosuab->get_situation()."','".
-					 $polosuab->get_long()."','".
-					 $polosuab->get_lat()."','".
-					 $polosuab->get_uf()."','".
-					 $polosuab->get_year()."','";
-		return $query;
+		$query =  	"INSERT INTO User (id, name, status, situation, long, lat, uf, year) VALUES ('".$user->get_id()."','".
+					 $user->get_name()."','".
+					 $user->get_last_name()."','".
+					 $user->get_email()."','".
+					 $user->get_nickname()."','".
+					 $user->get_type()."','".
+					 $user->get_pass()."','";
+		return $query;					
 	}
 	
 	public function search($request)
@@ -61,14 +58,13 @@ class polosUABController
 		if($this->isEmpty($params) == true)
 	{
 		$crit = $this->generateCriteria($params);
-		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
-		$conn = $db->getConnection();		
-		$result = $conn->query("SELECT id, name, status, situation, long, lat, uf, year FROM PolosUAB WHERE ".$crit);
+		$result = "SELECT name, last_name, email, nickname, type FROM User WHERE ".$crit;
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 		}else {
 		return "There are empty fields!!!";
 	}
 	}
+	
 	private function generateCriteria($params) 
 	{
 		$criteria = "";
@@ -78,7 +74,8 @@ class polosUABController
 		}
 		return substr($criteria, 0, -4);	
 	}
-			private function deleteCriteria($params) 
+	
+	private function deleteCriteria($params) 
 	{
 		$criteria = "";
 		foreach($params as $key => $value)
@@ -87,4 +84,5 @@ class polosUABController
 		}
 		return substr($criteria, 0, -5);
 	}
+	
 }

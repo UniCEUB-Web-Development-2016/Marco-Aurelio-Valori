@@ -9,7 +9,7 @@ class users_PolosUAB{
 	private $password_user;
 	
 		
-	public function __construct($id_user, $name_user, $lastName_user, $nickname $type_user, 
+	public function __construct($id_user, $name_user, $lastName_user, $nickname, $type_user, 
 		$password_user){
 		$this->set_userId($id_user);
 		$this->set_userName($name_user);
