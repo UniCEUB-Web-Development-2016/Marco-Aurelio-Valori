@@ -1,5 +1,5 @@
-<?php
-include "control/ControlManager.php";
+	<?php
+include_once "Control/ControlManager.php";
 class RequestRouter
 {
 	

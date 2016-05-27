@@ -1,6 +1,7 @@
 <?php
-include_once "GeopolosUAB/Classes/Request_PolosUAB.php";
-include_once "GeopolosUAB/Classes/Users_PolosUAB.php";
+include_once "Classes/Request_PolosUAB.php";
+include_once "Classes/Users_PolosUAB.php";
+include_once "DB Connection/DatabaseConnector.php";
 class UserController
 {
 	public function register($request)
@@ -8,7 +9,7 @@ class UserController
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
 		{
-		$user = new User($params["name"],
+		$user = new Users_PolosUAB($params["name"],
 				 $params["last_name"],
 				 $params["email"],
 				 $params["nickname"],

@@ -1,7 +1,7 @@
 <?php
-include_once "GeopolosUAB/Classes/Request_PolosUAB.php";
-include_once "GeopolosUAB/Classes/Courses_PolosUAB.php";
-include_once "GeopolosUAB/Control/DatabaseConnector.php";
+include_once "Classes/Request_PolosUAB.php";
+include_once "Classes/Courses_PolosUAB.php";
+include_once "DB Connection/DatabaseConnector.php";
 class Courses_Controller
 {
 	public function register($request)
@@ -9,7 +9,7 @@ class Courses_Controller
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
 		{
-			$courses = new Courses_Controller($params["id"],$params["name"],$params["type"],$params["year"],$params["students"]);
+			$courses = new Courses_PolosUAB($params["id"],$params["name"],$params["type"],$params["year"],$params["students"]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		return $conn->query($this->generateInsertQuery($courses));
@@ -50,7 +50,7 @@ class Courses_Controller
 	{
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
-	}
+	{
 		$crit = $this->generateCriteria($params);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
@@ -60,6 +60,7 @@ class Courses_Controller
 			return "There are empty fields!!!";
 		}
 	}
+	
 	
 	public function ReqDelete($request)
 	{

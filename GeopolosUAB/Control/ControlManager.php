@@ -1,6 +1,6 @@
 <?php
-include "GeopolosUAB/Control/RequestController.php";
-include "GeopolosUAB/Control/ResourceController.php";
+include_once "Control/RequestController.php";
+include_once "Control/ResourceController.php";
 class ControlManager
 {
 	private $resourceController;
@@ -18,21 +18,23 @@ class ControlManager
 			    $_SERVER["REQUEST_URI"],
 			    $_SERVER["SERVER_ADDR"]);
 		return $this->route_method($request);
-	}	
+	}		
 	public function route_method($request)
 	{
 		switch($request->get_method())
 		{
 			case "GET":
-			           break;
-			
+				return $this->resourceController->searchResource($request);
+			    break;
 			case "POST": 
-			   return $this->resourceController->createResource($request);
+			    return $this->resourceController->createResource($request);
 			    break;
 			case "PUT":
-			 			break;
+				return $this->resourceController->updateResource($request);
+			 	break;
 			case "DELETE": 
-						break;
+				return $this->resourceController->deleteResource($request);
+			    break;
 			default:
 		           
 		}	

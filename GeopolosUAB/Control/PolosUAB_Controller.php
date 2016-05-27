@@ -1,7 +1,7 @@
 <?php
-include_once "GeopolosUAB/Classes/Request_PolosUAB.php";
-include_once "GeopolosUAB/Classes/PolosUAB.php";
-include_once "GeopolosUAB/Control/DatabaseConnector.php";
+include_once "Classes/Request_PolosUAB.php";
+include_once "Classes/PolosUAB.php";
+include_once "DB Connection/DatabaseConnector.php";
 class polosUABController
 {
 	public function register($request)
@@ -9,7 +9,7 @@ class polosUABController
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
 		{
-		$polosuab = new Polosuab($params["id"],
+		$polosuab = new PolosUAB($params["id"],
 								 $params["name"],
 								 $params["status"],
 								 $params["situation"],

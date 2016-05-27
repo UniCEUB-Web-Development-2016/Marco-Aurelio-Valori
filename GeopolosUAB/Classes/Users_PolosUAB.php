@@ -1,5 +1,5 @@
 <?php
-class users_PolosUAB{
+class Users_PolosUAB{
 	
 	private $id_user;
 	private $name_user;

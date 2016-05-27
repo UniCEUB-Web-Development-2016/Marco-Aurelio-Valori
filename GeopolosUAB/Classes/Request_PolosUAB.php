@@ -3,23 +3,19 @@ class Request_PolosUAB
 {
 	private $protocol;
 	private $method;
-	private $uri;
-	private $server_name;
+	private $resource;
+	private $params;
 	private $server_address;
-
-
-
-	public function __construct($protocol,$method,$uri,$server_name, $server_addr)
+	public function __construct($protocol,$method,$resource,$params, $server_addr)
 	{
 		$this->set_protocol($protocol);
 		$this->set_method($method);
-		$this->set_uri($uri);
-		$this->set_server_name($server_name);
+		$this->set_resource($resource);
+		$this->set_params($params);
 		$this->set_server_addr($server_addr);
 	}
 	
-
-
+	
 	private function set_protocol($protocol)
 	{
 		$this->protocol = $protocol;
@@ -30,25 +26,30 @@ class Request_PolosUAB
 		$this->method = $method;
 	}
 	
-	private function set_uri($uri)
+	private function set_resource($resource)
 	{
-		$this->uri = $uri;
+		$this->resource = $resource;
 	}
 	
-	private function set_server_name($server)
+	private function set_params($params)
 	{
-		$this->server_name = $server;
+		$this->params = $params;
 	}
 	private function set_server_addr($server)
 	{
 		$this->server_address = $server;
 	}
-
-
-
-	public function get_uri()
+	public function get_resource()
 	{
-		return $this->uri;
+		return $this->resource;
+	}
+	public function get_params()
+	{
+		return $this->params;
+	}
+	public function get_method()
+	{
+		return $this->method;
 	}
 	
- } 
+}

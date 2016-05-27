@@ -1,5 +1,5 @@
 <?php
-class courses_PolosUAB{
+class Courses_PolosUAB{
 	
 	private $id_course;
 	private $name_course;
