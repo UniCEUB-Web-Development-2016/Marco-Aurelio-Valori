@@ -36,7 +36,7 @@ class UserController
 	
 	private function compare($params)
 	{
-		$paramsMap = ["name" => "", "type" => "", "year" => "", "students" => ""];
+		$paramsMap = ["name" => "", "last_name" => "", "email" => "", "nickname" => "", "type" => "", "pass" => ""];
 		$result = array_diff_key($paramsMap, $params);
 		return $result;
 	}
