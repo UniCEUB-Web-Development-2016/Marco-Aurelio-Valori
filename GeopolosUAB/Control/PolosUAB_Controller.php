@@ -37,7 +37,7 @@ class polosUABController
 	
 	private function compare($params)
 	{
-		$paramsMap = ["name" => "", "type" => "", "year" => "", "students" => ""];
+		$paramsMap = ["name" => "", "status" => "", "situation" => "", "long" => "", "lat" => "", "uf" => "", "year" => ""];
 		$result = array_diff_key($paramsMap, $params);
 		return $result;
 	}
