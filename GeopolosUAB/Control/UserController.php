@@ -18,7 +18,7 @@ class UserController
 				 $params["pass"]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
-		return $conn->query($this->generateInsertQuery($courses));
+		return $conn->query($this->generateInsertQuery($user));
 		} else {
 			return "There are empty fields!!!";
 		}
@@ -57,15 +57,12 @@ class UserController
 	public function search($request)
 	{
 		$params = $request->get_params();
-		if($this->isEmpty($params) == true)
-	{
+		
 		$crit = $this->generateCriteria($params);
 		$result = "SELECT id, name, last_name, email, nickname, type FROM User WHERE ".$crit;
-		return $result->fetchAll(PDO::FETCH_ASSOC);
-		}else {
-		return "There are empty fields!!!";
+		return $result;
 	}
-	}
+	
 	
 	private function generateCriteria($params) 
 	{

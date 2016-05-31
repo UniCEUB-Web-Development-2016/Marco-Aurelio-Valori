@@ -1,7 +1,6 @@
 <?php
 class PolosUAB{
 	
-	private $id_polo;
 	private $name_polo;
 	private $status_polo;
 	private $situation_polo;
@@ -10,10 +9,8 @@ class PolosUAB{
 	private $uf_polo;
 	private $year_polo;
 	
-	
-	
-	public function __construct($id_polo, $name_polo, $status_polo, $situation_polo, $long_polo, $lat_polo, $uf_polo, $year_polo){
-		$this->set_poloId($id_polo);
+		
+	public function __construct($name_polo, $status_polo, $situation_polo, $long_polo, $lat_polo, $uf_polo, $year_polo){
 		$this->set_poloName($name_polo);
 		$this->set_polostatus($status_polo);
 		$this->set_situation($situation_polo);
@@ -22,12 +19,7 @@ class PolosUAB{
 		$this->set_uf($uf_polo);
 		$this->set_year($year_polo);
 	}
-	
-	
-	
-	private function set_poloId ($id_polo){
-		$this->id_polo = $id_polo;
-	}
+		
 	
 	private function set_poloName ($name_polo){
 		$this->name_polo = $name_polo;
@@ -59,11 +51,6 @@ class PolosUAB{
 	
 	
 		
-	public function get_poloId (){
-		return $this->id_polo;
-		
-	}
-	
 	public function get_poloName (){
 		return $this->name_polo;
 	}

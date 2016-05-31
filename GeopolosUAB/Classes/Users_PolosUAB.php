@@ -1,7 +1,6 @@
 <?php
 class Users_PolosUAB{
 	
-	private $id_user;
 	private $name_user;
 	private $lastName_user;
 	private $email_user;
@@ -10,9 +9,8 @@ class Users_PolosUAB{
 	private $password_user;
 	
 		
-	public function __construct($id_user, $name_user, $lastName_user, $email_user, $nickname, $type_user, 
+	public function __construct($name_user, $lastName_user, $email_user, $nickname, $type_user, 
 		$password_user){
-		$this->set_userId($id_user);
 		$this->set_userName($name_user);
 		$this->set_userlastName($lastName_user);
 		$this->set_email($email_user);
@@ -22,10 +20,6 @@ class Users_PolosUAB{
 	}
 	
 	
-	
-	private function set_userId ($id_user){
-		$this->id_user = $id_user;
-	}
 	
 	private function set_userName ($name_user){
 		$this->name_user = $name_user;
@@ -52,10 +46,6 @@ class Users_PolosUAB{
 	}
 	
 	
-	
-	public function get_userId (){
-		return $this->id_user;
-	}
 	
 	public function get_userName (){
 		return $this->name_user;

@@ -19,7 +19,7 @@ class polosUABController
 								 $params[year]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
-		return $conn->query($this->generateInsertQuery($courses));
+		return $conn->query($this->generateInsertQuery($polosuab));
 		} else {
 			return "There are empty fields!!!";
 		}

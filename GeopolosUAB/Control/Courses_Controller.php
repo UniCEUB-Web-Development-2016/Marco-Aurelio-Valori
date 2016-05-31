@@ -35,7 +35,7 @@ class Courses_Controller
 		return $result;
 	}
 		
-	}
+	
 	private function generateInsertQuery($courses)
 	{
 		$query =  	"INSERT INTO Courses (id, name, type, year, students) VALUES ('".$courses->get_courseId()."','".

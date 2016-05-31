@@ -34,7 +34,7 @@ CREATE  TABLE IF NOT EXISTS `GeopolosUAB`.`Courses` (
   `name` VARCHAR(100) NOT NULL ,
   `type` VARCHAR(45) NOT NULL ,
   `year` YEAR NOT NULL ,
-  `studentes` INT NOT NULL ,
+  `students` INT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS `GeopolosUAB`.`User` ;
 CREATE  TABLE IF NOT EXISTS `GeopolosUAB`.`User` (
   `id` INT NOT NULL ,
   `name` VARCHAR(45) NOT NULL ,
-  `Last_name` VARCHAR(45) NOT NULL ,
+  `last_name` VARCHAR(45) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
   `nickname` VARCHAR(45) NOT NULL ,
   `type` VARCHAR(45) NOT NULL ,
@@ -77,8 +77,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `GeopolosUAB`;
-INSERT INTO `GeopolosUAB`.`Courses` (`id`, `name`, `type`, `year`, `studentes`) VALUES (1, 'Filosofia', 'Humanas', 2013, 35);
-INSERT INTO `GeopolosUAB`.`Courses` (`id`, `name`, `type`, `year`, `studentes`) VALUES (2, 'Ciência da Computação', 'Exatas', 2013, 31);
+INSERT INTO `GeopolosUAB`.`Courses` (`id`, `name`, `type`, `year`, `students`) VALUES (1, 'Filosofia', 'Humanas', 2013, 35);
+INSERT INTO `GeopolosUAB`.`Courses` (`id`, `name`, `type`, `year`, `students`) VALUES (2, 'Ciência da Computação', 'Exatas', 2013, 31);
 
 COMMIT;
 
@@ -87,6 +87,6 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `GeopolosUAB`;
-INSERT INTO `GeopolosUAB`.`User` (`id`, `name`, `Last_name`, `email`, `nickname`, `type`, `pass`) VALUES (1, 'Marco Aurélio', 'Valori', 'bonovalori@hotmail.com', 'mvalori', 'adm', NULL);
+INSERT INTO `GeopolosUAB`.`User` (`id`, `name`, `last_name`, `email`, `nickname`, `type`, `pass`) VALUES (1, 'Marco Aurélio', 'Valori', 'bonovalori@hotmail.com', 'mvalori', 'adm', '123456');
 
 COMMIT;

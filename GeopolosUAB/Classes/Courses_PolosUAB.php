@@ -1,24 +1,16 @@
 <?php
 class Courses_PolosUAB{
 	
-	private $id_course;
 	private $name_course;
 	private $type_course;
 	private $year_course;
 	private $students_course;
 		
-	public function __construct($id_course, $name_course, $type_course, $year_course, $students_course){
-		$this->set_courseId($id_course);
+	public function __construct($name_course, $type_course, $year_course, $students_course){
 		$this->set_courseName($name_course);
 		$this->set_coursetype($type_course);
 		$this->set_year($year_course);
 		$this->set_students($students_course);
-	}
-	
-	
-	
-	private function set_courseId ($id_course){
-		$this->id_course = $id_course;
 	}
 	
 	private function set_courseName ($name_course){
@@ -39,9 +31,6 @@ class Courses_PolosUAB{
 	
 	
 	
-	public function get_courseId (){
-		return $this->id_course;
-	}
 	
 	public function get_courseName (){
 		return $this->name_course;
