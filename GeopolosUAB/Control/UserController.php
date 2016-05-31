@@ -9,7 +9,8 @@ class UserController
 		$params = $request->get_params();
 		if($this->isEmpty($params) == true)
 		{
-		$user = new Users_PolosUAB($params["name"],
+		$user = new Users_PolosUAB($params["id"],
+				 $params["name"],
 				 $params["last_name"],
 				 $params["email"],
 				 $params["nickname"],
@@ -36,16 +37,16 @@ class UserController
 	
 	private function compare($params)
 	{
-		$paramsMap = ["name" => "", "last_name" => "", "email" => "", "nickname" => "", "type" => "", "pass" => ""];
+		$paramsMap = ["id" => "", "name" => "", "last_name" => "", "email" => "", "nickname" => "", "type" => "", "pass" => ""];
 		$result = array_diff_key($paramsMap, $params);
 		return $result;
 	}
 	
 	private function generateInsertQuery($user)
 	{
-		$query =  	"INSERT INTO User (id, name, status, situation, long, lat, uf, year) VALUES ('".$user->get_id()."','".
-					 $user->get_name()."','".
-					 $user->get_last_name()."','".
+		$query =  	"INSERT INTO User (id, name, last_name, email, nickname, type, pass) VALUES ('".$user->get_userId()."','".
+					 $user->get_userName()."','".
+					 $user->get_userlast_name()."','".
 					 $user->get_email()."','".
 					 $user->get_nickname()."','".
 					 $user->get_type()."','".
@@ -59,7 +60,7 @@ class UserController
 		if($this->isEmpty($params) == true)
 	{
 		$crit = $this->generateCriteria($params);
-		$result = "SELECT name, last_name, email, nickname, type FROM User WHERE ".$crit;
+		$result = "SELECT id, name, last_name, email, nickname, type FROM User WHERE ".$crit;
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 		}else {
 		return "There are empty fields!!!";

@@ -37,16 +37,16 @@ class polosUABController
 	
 	private function compare($params)
 	{
-		$paramsMap = ["name" => "", "status" => "", "situation" => "", "long" => "", "lat" => "", "uf" => "", "year" => ""];
+		$paramsMap = ["id" => "", "name" => "", "status" => "", "situation" => "", "long" => "", "lat" => "", "uf" => "", "year" => ""];
 		$result = array_diff_key($paramsMap, $params);
 		return $result;
 	}
 	
 	private function generateInsertQuery($polosuab)
 	{
-		$query =  	"INSERT INTO PolosUAB (id, name, status, situation, long, lat, uf, year) VALUES ('".$polosuab->get_id()."','".
-					 $polosuab->get_name()."','".
-					 $polosuab->get_status()."','".
+		$query =  	"INSERT INTO PolosUAB (id, name, status, situation, long, lat, uf, year) VALUES ('".$polosuab->get_poloId()."','".
+					 $polosuab->get_poloName()."','".
+					 $polosuab->get_polostatus()."','".
 					 $polosuab->get_situation()."','".
 					 $polosuab->get_long()."','".
 					 $polosuab->get_lat()."','".

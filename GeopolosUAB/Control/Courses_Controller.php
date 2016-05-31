@@ -30,7 +30,7 @@ class Courses_Controller
 	
 	private function compare($params)
 	{
-		$paramsMap = ["name" => "", "type" => "", "year" => "", "students" => ""];
+		$paramsMap = ["id" => "", "name" => "", "type" => "", "year" => "", "students" => ""];
 		$result = array_diff_key($paramsMap, $params);
 		return $result;
 	}
@@ -38,9 +38,9 @@ class Courses_Controller
 	}
 	private function generateInsertQuery($courses)
 	{
-		$query =  	"INSERT INTO Courses (id, name, type, year, students) VALUES ('".$courses->get_id()."','".
-					 $courses->get_name()."','".
-					 $courses->get_type()."','".
+		$query =  	"INSERT INTO Courses (id, name, type, year, students) VALUES ('".$courses->get_courseId()."','".
+					 $courses->get_courseName()."','".
+					 $courses->get_coursetype()."','".
 					 $courses->get_year()."','".
 					 $courses->get_students();
 		return $query;
