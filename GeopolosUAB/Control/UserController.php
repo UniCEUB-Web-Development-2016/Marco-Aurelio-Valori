@@ -18,7 +18,7 @@ class UserController
 				 $params["pass"]);
 		$db = new DatabaseConnector("localhost", "GeopolosUAB", "mysql", "", "root", "");
 		$conn = $db->getConnection();
-		return $conn->query($this->generateInsertQuery($courses));
+		return $conn->query($this->generateInsertQuery($user));
 		} else {
 			return "There are empty fields!!!";
 		}
