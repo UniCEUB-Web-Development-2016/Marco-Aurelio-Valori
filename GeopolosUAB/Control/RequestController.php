@@ -1,11 +1,11 @@
 <?php
-include_once "Classes/Request_PolosUAB.php";
+include_once "Model/Request.php";
 class RequestController
 {
 	public function createRequest($protocol, $method, $uri, $server_addr)
 	{
 		$uri_array = explode("/", $uri);
-		return new Request_PolosUAB(
+		return new Request(
 			    $protocol,
 				$method,
 				$uri_array[2],

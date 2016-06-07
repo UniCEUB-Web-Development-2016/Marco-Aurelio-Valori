@@ -1,16 +1,18 @@
 <?php
-include_once "Classes/Request_PolosUAB.php";
+include_once "Model/Request.php";
+
 include_once "Control/UserController.php";
-include_once "Control/PolosUAB_Controller.php";
-include_once "Control/Courses_Controller.php";
+include_once "Control/CourseController.php";
+include_once "Control/PolosController.php";
+
 
 class ResourceController
 {
 	private $controlMap = 
 	[	"user" => "UserController",
-		"polosuab" => "PolosUAB_Controller",
-		"course" => "Courses_Controller"];
-	
+		"polos" => "PolosController",
+		"course" => "CourseController"];
+		
 	public function createResource($request)
 	{
 		return (new $this->controlMap[$request->get_resource()]())->register($request);
@@ -26,5 +28,5 @@ class ResourceController
 	public function updateResource($request)
 	{
 		return (new $this->controlMap[$request->get_resource()]())->update($request);
-	}	
+	}
 }
