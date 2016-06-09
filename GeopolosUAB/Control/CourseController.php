@@ -55,12 +55,35 @@ class CourseController
 			$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
 			$conn = $db->getConnection();
 			$result = $conn->query("SELECT name, type, year, students FROM course WHERE ".$crit);
-			var_dump($result);
-			//return $result->fetchAll(PDO::FETCH_ASSOC);
+			//var_dump($result);
+			return $result->fetchAll(PDO::FETCH_ASSOC);
 		} else {
 	        return "There are empty fields!!!";
 		}
 	}
+	
+	public function update($request)
+    {
+        $params = $request->get_params();
+        $db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
+        $conn = $db->getConnection();
+        return $conn->query($this->generateUpdateQuery($params));
+    }
+    private function generateUpdateQuery($params)
+    {
+        $crit = $this->generateUpdateCriteria($params);
+        return "UPDATE course SET " . $crit . " WHERE name = '" . $params["name"] . "'";
+    }
+    private function generateUpdateCriteria($params)
+    {
+        $criteria = "";
+        foreach ($params as $key => $value)
+        {
+            $criteria = $criteria.$key." = '".$value."' ,";
+        }
+        return substr($criteria, 0, -2);
+    }
+	
 	
 	public function ReqDelete($request)
 	{

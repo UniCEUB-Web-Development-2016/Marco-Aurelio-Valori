@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
     <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="app.css">
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJPuYJ9soIklzrCH8HkTSHtyF-ZmD_JcY&sensor=false"></script>
     <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
@@ -37,6 +39,7 @@
     <button id="atualizarBtn"><strong>Atualizar Mapa</strong></button>
 </div>
 <div id="map_canvas"> </div>
+
 <script type="text/javascript">
     function situacaoLabel(sit) {
         switch (sit) {
@@ -57,24 +60,19 @@
         carregarFiltros();
     })
 	
-	//window.alert(_.size(dados));
-	
-	
-	
-</script>
+	</script>
 
 	
-
 <div style="width: 100%; float:left">
                     <strong>Observação:Kits de Laboratório constam a partir de 2015 e são referentes aos Contratos CAPES 35 e 37/2013.</strong><br />
                    </div>
 				    </div>
 <div style="width: 100%; float:left">
                     <strong>Legenda:</strong>
-					<strong><img width="10px" height="15px" src="//departamentos/CTED/CTED/Desenvolvimento CTED - 2015/APPS INDICADORES/APPS V1.3/img/green_MarkerA.png"/> AA - Apto</strong>
-					<strong><img width="10px" height="15px" src="//departamentos/CTED/CTED/Desenvolvimento CTED - 2015/APPS INDICADORES/APPS V1.3/img/yellow_MarkerA.png"/> AP - Apto com Pendências</strong>
-					<strong><img width="10px" height="15px" src="//departamentos/CTED/CTED/Desenvolvimento CTED - 2015/APPS INDICADORES/APPS V1.3/img/blue_MarkerA.png"/> FR - Fase de Rugularização</strong>
-					<strong><img width="10px" height="15px" src="//departamentos/CTED/CTED/Desenvolvimento CTED - 2015/APPS INDICADORES/APPS V1.3/img/red_MarkerA.png"/> NA - Não Apto</strong><br />
+					<strong><img width="10px" height="15px" src="C:/xampp/htdocs/GeopolosUAB/Client/img/green_MarkerA.png"/> AA - Apto</strong>
+					<strong><img width="10px" height="15px" src="C:/xampp/htdocs/GeopolosUAB/Client/img/yellow_MarkerA.png"/> AP - Apto com Pendências</strong>
+					<strong><img width="10px" height="15px" src="C:/xampp/htdocs/GeopolosUAB/Client/img/blue_MarkerA.png"/> FR - Fase de Rugularização</strong>
+					<strong><img width="10px" height="15px" src="C:/xampp/htdocs/GeopolosUAB/Client/img/red_MarkerA.png"/> NA - Não Apto</strong><br />
                    </div>
 <div style="width: 100%; float:left">
                     <strong>Contador dos Polos será iniciado após clique em "Atualizar Mapa".</strong>

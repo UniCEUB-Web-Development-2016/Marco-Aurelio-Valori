@@ -1,6 +1,5 @@
 <?php
 include_once "Model/Request.php";
-
 include_once "Control/UserController.php";
 include_once "Control/CourseController.php";
 include_once "Control/PolosController.php";

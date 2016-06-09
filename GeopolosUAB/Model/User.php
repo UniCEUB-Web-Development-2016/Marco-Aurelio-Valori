@@ -54,7 +54,7 @@ class User{
 		return $this->type;
 	}
 	
-	private function get_passwordUser(){
+	public function get_passwordUser(){
 		return $this->password;
 	}
 }
