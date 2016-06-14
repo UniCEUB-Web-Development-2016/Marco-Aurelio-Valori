@@ -143,21 +143,6 @@ function _labFilter(i) {
     return i.lab == value;
 }
 
-//function _cursoFilter(i) {//a
-//	var value = $('#curso :selected').val();
-//    if (value == '') {
-//        return true;
-//    }
-//    return i.curso == value;
-//}
-
-//function _alunoFilter(i) {//a
-	//var value = $('#aluno :selected').val();
-    //if (value == '') {
-     //   return true;
-   // }
-    //return i.aluno == value;
-//}
 
 function _criarMarcador(i) {
     var iconColor;

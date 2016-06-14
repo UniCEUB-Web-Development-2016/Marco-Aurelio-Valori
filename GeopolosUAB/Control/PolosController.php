@@ -13,9 +13,10 @@ class PolosController
 			$polosuab = new PolosUab($params["name"],$params["status"],$params["situation"],$params["lon"],$params["lat"],$params["uf"],$params["year"]);
 			$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
 			$conn = $db->getConnection();
-			return $conn->query($this->generateInsertQuery($polosuab));
+			$result = $conn->query($this->generateInsertQuery($polosuab));
+			return $result->fetchAll(PDO::FETCH_ASSOC);	
 		} else {
-			return "There are empty fields!!!";
+			echo "There are empty fields!!!";
 		}
 	}
 	
@@ -69,7 +70,8 @@ class PolosController
         $params = $request->get_params();
         $db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
         $conn = $db->getConnection();
-        return $conn->query($this->generateUpdateQuery($params));
+        $result = $conn->query($this->generateUpdateQuery($params));
+		return $result->fetchAll(PDO::FETCH_ASSOC);
     }
     private function generateUpdateQuery($params)
     {

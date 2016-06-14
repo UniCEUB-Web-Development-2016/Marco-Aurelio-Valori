@@ -11,13 +11,14 @@ class UserController
 	{
 		$params = $request->get_params();
 		if($this->isValid($params)){
-		$user = new User($params["name"], $params["last_name"], $params["email"], $params["type"], $params["password"]);
-		$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
-		$conn = $db->getConnection();
-		return $conn->query($this->generateInsertQuery($user));	
-	}else{
-		echo "Erro 400: Bad Request";
-	}
+			$user = new User($params["name"], $params["last_name"], $params["email"], $params["type"], $params["password"]);
+			$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
+			$conn = $db->getConnection();
+			$result = $conn->query($this->generateInsertQuery($user));
+			return $result->fetchAll(PDO::FETCH_ASSOC);	
+		}else{
+			echo "Erro 400: Bad Request";
+		}
 	}
 	private function generateInsertQuery($user)
 	{
@@ -45,7 +46,8 @@ class UserController
         $params = $request->get_params();
         $db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
         $conn = $db->getConnection();
-        return $conn->query($this->generateUpdateQuery($params));
+        $result = $conn->query($this->generateUpdateQuery($params));
+		return $result->fetchAll(PDO::FETCH_ASSOC);
     }
     private function generateUpdateQuery($params)
     {

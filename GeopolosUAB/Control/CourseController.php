@@ -4,19 +4,20 @@ include_once "Model/Courses.php";
 include_once "Database/DatabaseConnector.php";
 
 class CourseController
-{
-
+{	
+	private $requiredParameters = array('name', 'type', 'year', 'students');
+	
 	public function register($request)
 	{
 		$params = $request->get_params();
-		if($this->isEmpty($params) == true)
-		{
+		if($this->isEmpty($params) == true)		{
 			$courses = new Courses($params["name"],$params["type"],$params["year"],$params["students"]);
 			$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
 			$conn = $db->getConnection();
-			return $conn->query($this->generateInsertQuery($courses));
+			$result = $conn->query($this->generateInsertQuery($courses));
+			return $result->fetchAll(PDO::FETCH_ASSOC);	
 		} else {
-			return "There are empty fields!!!";
+			echo "There are empty fields!!!";
 		}
 	}
 	
@@ -67,7 +68,8 @@ class CourseController
         $params = $request->get_params();
         $db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
         $conn = $db->getConnection();
-        return $conn->query($this->generateUpdateQuery($params));
+        $result = $conn->query($this->generateUpdateQuery($params));
+		return $result->fetchAll(PDO::FETCH_ASSOC);
     }
     private function generateUpdateQuery($params)
     {
