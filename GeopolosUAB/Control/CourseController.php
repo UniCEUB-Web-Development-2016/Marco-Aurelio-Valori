@@ -50,17 +50,17 @@ class CourseController
 	public function search($request)
 	{
 		$params = $request->get_params();
-		if($this->isEmpty($params) == true)
-		{
+		//if($this->isEmpty($params) == true)
+	//	{
 			$crit = $this->generateCriteria($params);
 			$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
 			$conn = $db->getConnection();
-			$result = $conn->query("SELECT name, type, year, students FROM course WHERE ".$crit);
+			$result = $conn->query("SELECT name, type, year FROM course WHERE ".$crit);
 			//var_dump($result);
 			return $result->fetchAll(PDO::FETCH_ASSOC);
-		} else {
-	        return "There are empty fields!!!";
-		}
+	//	} else {
+	//        return "There are empty fields!!!";
+		//}
 	}
 	
 	public function update($request)
@@ -108,9 +108,9 @@ class CourseController
 		foreach($params as $key => $value)
 		{
 			if(gettype($value)=== "int"){
-				$criteria = $criteria.$key." = '%".$value."%' OR ";
+				$criteria = $criteria.$key." = '%".$value."%' AND ";
 			}else{
-				$criteria = $criteria.$key." LIKE '%".$value."%' OR ";
+				$criteria = $criteria.$key." = '".$value."' AND ";
 			}
 		}
 		return substr($criteria, 0, -4);

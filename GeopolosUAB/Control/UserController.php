@@ -37,7 +37,7 @@ class UserController
 		$crit = $this->generateCriteria($params);
 		$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
 		$conn = $db->getConnection();
-		$result = $conn->query("SELECT name, last_name, email, type, password FROM user WHERE ".$crit);
+		$result = $conn->query("SELECT name, last_name, email, type FROM user WHERE ".$crit);
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
@@ -67,7 +67,7 @@ class UserController
 		public function ReqDelete($request)
 	{
 		$params = $request->get_params();
-		$crit = $this->generateCriteria($params);
+		$crit = $this->deleteCriteria($params);
 		$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
 		$conn = $db->getConnection();
 		$result = $conn->query("DELETE FROM user WHERE ".$crit);
@@ -79,9 +79,19 @@ class UserController
 		$criteria = "";
 		foreach($params as $key => $value)
 		{
-			$criteria = $criteria.$key." LIKE '%".$value."%' OR ";
+			$criteria = $criteria.$key." = '".$value."' AND ";
 		}
 		return substr($criteria, 0, -4);	
+	}
+	
+	private function deleteCriteria($params)
+	{
+		$criteria = "";
+		foreach($params as $key => $value)
+		{
+			$criteria = $criteria.$key." LIKE '".$value."' AND ";
+		}
+		return substr($criteria, 0, -5);
 	}
 	private function isValid($parameters)
     {

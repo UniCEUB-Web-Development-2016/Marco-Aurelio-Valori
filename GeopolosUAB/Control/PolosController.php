@@ -2,7 +2,7 @@
 include_once "Model/Request.php";
 include_once "Model/PolosUab.php";
 include_once "Database/DatabaseConnector.php";
-
+header('Access-Control-Allow-Origin: *');
 class PolosController
 {
 	public function register($request)
@@ -32,11 +32,14 @@ class PolosController
 	
 	private function compare($params)
 	{
-		$paramsMap = ["name" => "", "status" => "", "situation" => "", "lon" => "", "lat" => "", "uf" => "", "year" => ""];
+		$paramsMap = ["name" => "", "status" => "", "situation" => "", "lon" => "", "lat" => "", "uf" => "", "year" => ""];//criar json deste array
 		$result = array_diff_key($paramsMap, $params);
 		return $result;
+		
 	}
-
+	
+	
+	
 	private function generateInsertQuery($PolosUab)
 	{
 		$query =  	"INSERT INTO polos (name, status, situation, lon, lat, uf, year) VALUES ('".$PolosUab->get_poloName()."','".
@@ -52,17 +55,18 @@ class PolosController
 	public function search($request)
 	{
 		$params = $request->get_params();
-		if($this->isEmpty($params) == true)
-		{
+		//if($this->isEmpty($params) == true)
+	//	{
 			$crit = $this->generateCriteria($params);
 			$db = new DatabaseConnector("localhost", "geopolosuab", "mysql", "", "root", "");
 			$conn = $db->getConnection();
-			$result = $conn->query("SELECT name, status, situation, lon, lat, uf, year FROM polos WHERE ".$crit);
-			//var_dump($result);
+			$result = $conn->query("SELECT name, status, situation, uf, year FROM polos WHERE ".$crit);
 			return $result->fetchAll(PDO::FETCH_ASSOC);
-		} else {
-	        return "There are empty fields!!!";
-		}
+	
+	//	} else {
+	        //return "There are empty fields!!!";
+			
+		//}
 	}
 	
 	public function update($request)
@@ -108,11 +112,9 @@ class PolosController
 		$criteria = "";
 		foreach($params as $key => $value)
 		{
-			if(gettype($value)=== "int"){
-				$criteria = $criteria.$key." = '%".$value."%' OR ";
-			}else{
-				$criteria = $criteria.$key." LIKE '%".$value."%' OR ";
-			}
+			
+				$criteria = $criteria.$key." = '".$value."' OR ";
+			
 		}
 		return substr($criteria, 0, -4);
 	}
@@ -126,4 +128,8 @@ class PolosController
 		}
 		return substr($criteria, 0, -5);
 	}
+	
+	
+	
+	
 }

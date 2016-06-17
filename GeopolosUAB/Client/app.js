@@ -41,26 +41,7 @@ function carregarFiltros() {
         return i;
     });
 	
-	var labs = _unique(dados.map(function (i) {
-        return i.lab
-    })).sort();
 
-    $('#lab').append('<option value=\'\'>(todos)</option>');
-    _appendSelect($('#lab'), labs, undefined, function(i) {
-        return i;
-    });
-	
-	var curs = _unique(dados.map(function (i) {//a
-       return i.curso
-    })).sort();
-
-    _appendSelect($('#curso'), curs);
-	
-	var alun = _unique(dados.map(function (i) {//a
-       return i.aluno
-    })).sort();
-
-    _appendSelect($('#aluno'), alun);
 }
 
 function search() {
@@ -71,14 +52,10 @@ function search() {
         .filter(_situacaoFilter)
         .filter(_statusFilter)
         .filter(_ufFilter)
-        .filter(_escolaFilter)
-		.filter(_labFilter)
-	//	.filter(_cursoFilter)//a
-	//	.filter(_alunoFilter)//a
         .map(_criarMarcador);
 		
 	
-	$("#counter").html(counter +" Polos");
+	$("#counter").html(counter);
 	//alert(counter); mostra resultados na tela
 }
 
@@ -127,22 +104,6 @@ function _ufFilter(i) {
     return i.uf == value;
 }
 
-function _escolaFilter(i) {
-    var value = $('#compartilhaEspaco :selected').val();
-    if (value == '') {
-        return true;
-    }
-    return i.compartilha == value;
-}
-
-function _labFilter(i) {
-	var value = $('#lab :selected').val();
-    if (value == '') {
-        return true;
-    }
-    return i.lab == value;
-}
-
 
 function _criarMarcador(i) {
     var iconColor;
@@ -165,7 +126,7 @@ function _criarMarcador(i) {
     counter = counter + 1;	//Acresce 1 ao gerar novo marcador
     return new google.maps.Marker({
         position: i.latLng,
-        title: i.cidade + "\n\nCursos:\n"+i.curso,//a +"\n curso até fim"
+        title: i.cidade,
         map: brasil,
         icon: 'img/' + iconColor + '_Marker' + i.status.charAt(0)+  '.png'
 		

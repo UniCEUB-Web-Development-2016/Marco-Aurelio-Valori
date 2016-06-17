@@ -39,19 +39,29 @@
 
     <div class="container">
 
-      <form class="form-signin" action="insertuser.php" method="post">
-        <h2 class="form-signin-heading">Please sign up</h2>
+      <form class="form-signin" action="insertUser.php" method="post">
+        <h2 class="form-signin-heading">Por favor, registre-se.</h2>
         
 
-        <input type="text" name="first_name" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus>
+        <input type="text" name="name" id="inputName" class="form-control" placeholder="Nome" required autofocus>
 
-        <input type="text" name="last_name"id="inputLastName" class="form-control" placeholder="Last Name" required autofocus>
+        <input type="text" name="last_name"id="inputLastName" class="form-control" placeholder="Sobrenome" required autofocus>
                
-        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-              
-        <input type="password" name="pass" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="e-mail" required autofocus
+						
+						<input <label for="Type:">Tipo:</label>
+						<select name="tipo_usuario">
+						<option value="">Selecione</option>
+						<option value="1">Usuario Comum</option>
+						<option value="2">Administrador</option>
+						</select><br />
+		                
+		<!--<input type="type" name="type" id="inputType" class="form-control" placeholder="type" required autofocus>-->
+		
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="senha" required>
       
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" href="geomenu.html">Registre-se</button>
+		<p><a class="btn btn-lg btn-primary btn-block" href="home.html" role="button">Voltar &raquo;</a></p>
       </form>
 
     </div> <!-- /container -->

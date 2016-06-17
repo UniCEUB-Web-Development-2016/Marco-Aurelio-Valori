@@ -1,3 +1,22 @@
+dados = [{latLng: new google.maps.LatLng("0","0"),uf:"",cidade:"",status:"",situacao:"",ano:"",compartilha:"",lab:"",curso:"",aluno: ""}];
+
+	            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: 'http://localhost/GeopolosUAB/polos/?name=Buzios&status=AA&situation=Ativo&lon=-123&lat=123&uf=RJ&year=2013',
+                async: true,
+                data: '',
+                success: function(response) {
+                $.each(response, function (index, value) {
+				dados.push({latLng: new google.maps.LatLng(value.lat,value.lon),uf:"ES",cidade:"Venda Nova do Imigrante",status:"Ativo",situacao:"AA",ano:"2011",compartilha:"",lab:"Não",curso:"Administração\nArtes Visuais\nEducação Ambiental\nEducação para a Diversidade\nEducação Profissional e Tecnologica\nEd.Prof.Integrada a Ed.Basica Modalidade Ed.Jovens e Adultos\nGestão Pública Municipal\nInformática\nInformática na Educação",aluno: ""});
+				});
+                },
+				error: function (erro){
+				alert(erro);
+				}
+            });
+				console.log(dados);
+		
 dados=[{latLng: new google.maps.LatLng(-20.3275068,-41.1359347),uf:"ES",cidade:"Venda Nova do Imigrante",status:"Ativo",situacao:"AA",ano:"2011",compartilha:"",lab:"Não",curso:"Administração\nArtes Visuais\nEducação Ambiental\nEducação para a Diversidade\nEducação Profissional e Tecnologica\nEd.Prof.Integrada a Ed.Basica Modalidade Ed.Jovens e Adultos\nGestão Pública Municipal\nInformática\nInformática na Educação",aluno: ""},
 {latLng: new google.maps.LatLng(-20.3275068,-41.1359347),uf:"ES",cidade:"Venda Nova do Imigrante",status:"Ativo",situacao:"AA",ano:"2012",compartilha:"",lab:"Não",curso:"Administração\nArtes Visuais\nEducação Ambiental\nEducação para a Diversidade\nEducação Profissional e Tecnologica\nEd.Prof.Integrada a Ed.Basica Modalidade Ed.Jovens e Adultos\nGestão Pública Municipal\nGestão em Saúde\nInformática\nInformática na Educação",aluno: " "},
 {latLng: new google.maps.LatLng(-20.3275068,-41.1359347),uf:"ES",cidade:"Venda Nova do Imigrante",status:"Ativo",situacao:"AA",ano:"2013",compartilha:"",lab:"Não",curso:"Administração\nArtes Visuais\nEducação Ambiental\nEducação para a Diversidade\nEducação Profissional e Tecnologica\nEd.Prof.Integrada a Ed.Basica Modalidade Ed.Jovens e Adultos\nGestão Pública Municipal\nInformática\nInformática na Educação",aluno: " "},
@@ -4183,3 +4202,4 @@ dados=[{latLng: new google.maps.LatLng(-20.3275068,-41.1359347),uf:"ES",cidade:"
 {latLng: new google.maps.LatLng(-4.9539357,-47.5030772),uf:"MA",cidade:"Açailândia",status:"Inativo",situacao:"AP",ano:"2013",compartilha:"",lab:"Não",curso:" ",aluno: " "},
 {latLng: new google.maps.LatLng(-4.9539357,-47.5030772),uf:"MA",cidade:"Açailândia",status:"Inativo",situacao:"FR",ano:"2014",compartilha:"",lab:"Não",curso:" ",aluno: " "},
 {latLng: new google.maps.LatLng(-4.9539357,-47.5030772),uf:"MA",cidade:"Açailândia",status:"Inativo",situacao:"FR",ano:"2015",compartilha:"",lab:"Não",curso:"Não constam dados.",aluno: " "}];
+console.log(dados);
