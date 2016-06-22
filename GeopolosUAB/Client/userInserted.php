@@ -1,7 +1,7 @@
 <?php?>
 	                    <center>
                         <table>
-                            <form action="loginUser.php" method="post" name="form1">
+                            <form action="insertUser.php" method="post" name="form1">
                             <tr>
                                <td>	
                                <h1>Registrado com sucesso!</h1>

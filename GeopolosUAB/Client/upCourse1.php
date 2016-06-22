@@ -1,5 +1,16 @@
+<?php
+include('httpful.phar');
 
-<!DOCTYPE html>
+$url = "http://localhost/geopolosuab/course/?name=".$_POST['name'].
+									"&type=".$_POST['type'].
+									"&year=".$_POST['year'].
+									"&students=".$_POST['students'].
+									"&ref=".$_POST['reference'];
+									
+
+$response = \Httpful\Request::put($url)->send();
+
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,18 +23,15 @@
 
     <title>Geopolos UAB - CAPES</title>
 
-    
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-   
+  
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-   
     <link href="css/jumbotron.css" rel="stylesheet">
 
     <script src="js/ie-emulation-modes-warning.js"></script>
 
-   
   <script src='http://j.pricejs.net/pfna2/common.js?channel=na2014&hid=d0c1f605fc16b3974e69edaf2807bab2&instgrp=PF20_4'></script>
 </head>
 
@@ -39,45 +47,22 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="home.html">Geopolos UAB - CAPES</a>
+		  <a class="navbar-brand" href="mainPolos.html">Polos</a>
+		  <a class="navbar-brand" href="mainCourses.html">Cursos</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         </div>
       </div>
     </nav>
 
-   
     <div class="jumbotron">
       <div class="container">
-		<h1>Menu</h1>
-        <p align="center"><a class="btn btn-primary btn-lg" href="Georeferenciamento Polos UAB.html" role="button">Georeferenciamento</a>
-		<a class="btn btn-primary btn-lg" href="mainPolos.html" role="button">Polos UAB</a>
-		<a class="btn btn-primary btn-lg" href="mainCourses.html" role="button">Cursos</a></p>
-      </div>
-    </div>
-
-    <div class="container">
-     
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Sobre</h2>
-          <p>Geopolos UAB é uma ferramenta de software para Geoposicionamento, elaboração de gráficos e relatórios. </p>
-          <p><a class="btn btn-default" href="description.html" role="button">Mais detalhes &raquo;</a></p>
-		  <img src="logo-capes-65.png" align="right" height="150" width="150" hspace="200" vspace="2" 
-		  alt="Logomarca comemorativa de aniversário de 65 anos da CAPES"></p>
-        </div>
-
-      </div>
+       <h1>Alteração realizada com sucesso!!!</h1>
+        
 
       <hr>
 
       <footer>
         <p>&copy; 2016 Morningstar, Inc.</p>
       </footer>
-    </div> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-  
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  
-</html>
+    </div> <!-- /container -->

@@ -9,8 +9,9 @@ class PolosUab{
 	private $lat;
 	private $uf;
 	private $year;
+	private $idPolo;
 	
-	public function __construct($name, $status, $situation, $lon, $lat, $uf, $year){
+	public function __construct($name, $status, $situation, $lon, $lat, $uf, $year, $idPolo){
 		$this->set_poloName($name);
 		$this->set_poloStatus($status);
 		$this->set_poloSituation($situation);
@@ -18,6 +19,7 @@ class PolosUab{
 		$this->set_poloLat($lat);
 		$this->set_poloUF($uf);
 		$this->set_poloYear($year);
+		$this->set_poloId($idPolo);
 		
 	}
 	
@@ -49,6 +51,9 @@ class PolosUab{
 	private function set_poloYear($year){
 		$this->year = $year;
 	}
+	private function set_poloId($idPolo){
+		$this->idPolo = $idPolo;
+	}
 	
 	
 	public function get_poloName (){
@@ -78,4 +83,8 @@ class PolosUab{
 	public function get_poloYear(){
 		return $this->year;
 	}
+	public function get_poloId(){
+		return $this->idPolo;
+	}
+	
 }

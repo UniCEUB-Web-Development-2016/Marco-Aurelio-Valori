@@ -14,15 +14,16 @@
                            <td>Ano-Base:</td>
                            <td><input class="form-control" type="text"  name="year" ></td> 
                        </tr> 
-                       <tr>
-                           
+					   <tr>
                            <td>Estudantes:</td>
-                           <td><input class="form-control" type="text" name="students"></td>
+                           <td><input class="form-control" type="text"  name="students" ></td> 
                        </tr> 
-                       <tr>
+                        <tr>
                            <td><button class="btn btn-primary" type="submit"/>Buscar</button></td>
-                           
+						                      
                        </tr>
                     </table>
-                </form>    
+					
+                </form>  
+					
  <?php include("footer.php")?>

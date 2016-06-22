@@ -10,18 +10,18 @@ $response = \Httpful\Request::post($url)->send();
 header('location:userInserted.php');
 
 
-$response = \Httpful\Request::get($url)->send();
+//$response = \Httpful\Request::get($url)->send();
 
-$request_response = json_decode($response->body);
+//$request_response = json_decode($response->body);
 
-foreach($request_response as $value)
-{
-	echo $value->name . '<br>';
-	echo '<div class="checkbox">
-       <label>
-          <input type="checkbox" value="remember-me"> Remember me
-       </label>
-       </div>';
-}
+//foreach($request_response as $value)
+//{
+//	echo $value->name . '<br>';
+//	echo '<div class="checkbox">
+ //      <label>
+  //        <input type="checkbox" value="remember-me"> Remember me
+   //   </label>
+   //    </div>';
+//}
 
 

@@ -18,32 +18,34 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="home.html">Geopolos UAB - CAPES</a>
-		  <a class="navbar-brand" href="mainPolos.html">Polos</a>
+		  <a class="navbar-brand" href="mainCourses.html">Polos</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         </div>
       </div>
     </nav>
     <div class="jumbotron">
-
+  
     <div class="container">
 
-    <form class="form-signin" action="delCourse1.php" method="post">
-        <h2 class="form-signin-heading">Exclusão de Curso</h2>
-        
-        <input type="text" name="name" id="inputName" class="form-control" placeholder="Curso" required autofocus>
-
-        <input type="text" name="type"id="inputType" class="form-control" placeholder="Tipo" required autofocus>
-
-        <input type="text" name="year" id="inputYear" class="form-control" placeholder="Ano-Base" required autofocus>
+    <form class="form-signin" action="upCourse1.php" method="post">
+        <h2 class="form-signin-heading">Alteração de Curso</h2>
 		
-		<input type="text" name="students" id="inputStudents" class="form-control" placeholder="Estudantes" required autofocus>
+		<input type="text" name="reference" id="inputNameReference" class="form-control" placeholder="Referencia" required autofocus>
+				
+		<input type="text" name="name" id="inputName" class="form-control" placeholder="Nome">
 
-        <button class="btn btn-primary btn-lg" type="submit">Save</button><!--<input type="hidden" name="codStore" value="<?php //echo $_SESSION['CurrentUser']; ?>" />-->
-    </form>
+        <input type="text" name="type" id="inputType" class="form-control" placeholder="Tipo (Exatas/Humanas)">
+
+        <input type="text" name="year" id="inputYear" class="form-control" placeholder="Ano-Base">
 		
-		
-    </div> 
+		<input type="text" name="students" id="inputStudents" class="form-control" placeholder="Estudantes">
+
+        	
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+      </form>
+
+    </div>>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
 	
   </body>

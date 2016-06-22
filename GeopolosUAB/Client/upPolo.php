@@ -25,25 +25,32 @@
       </div>
     </nav>
     <div class="jumbotron">
-
+  
     <div class="container">
 
-    <form class="form-signin" action="delCourse1.php" method="post">
-        <h2 class="form-signin-heading">Exclusão de Curso</h2>
-        
-        <input type="text" name="name" id="inputName" class="form-control" placeholder="Curso" required autofocus>
-
-        <input type="text" name="type"id="inputType" class="form-control" placeholder="Tipo" required autofocus>
-
-        <input type="text" name="year" id="inputYear" class="form-control" placeholder="Ano-Base" required autofocus>
+    <form class="form-signin" action="upPolo1.php" method="post">
+        <h2 class="form-signin-heading">Alteração de Polo</h2>
 		
-		<input type="text" name="students" id="inputStudents" class="form-control" placeholder="Estudantes" required autofocus>
+		<input type="text" name="reference" id="inputNameReference" class="form-control" placeholder="Referencia" required autofocus>
+				
+		<input type="text" name="name" id="inputName" class="form-control" placeholder="Nome">
 
-        <button class="btn btn-primary btn-lg" type="submit">Save</button><!--<input type="hidden" name="codStore" value="<?php //echo $_SESSION['CurrentUser']; ?>" />-->
-    </form>
+        <input type="text" name="status" id="inputStatus" class="form-control" placeholder="Status">
+
+        <input type="text" name="situation" id="inputSituation" class="form-control" placeholder="Situação">
 		
+		<input type="text" name="lon" id="inputLon" class="form-control" placeholder="Longitude">
+
+        <input type="text" name="lat" id="inputLat" class="form-control" placeholder="Latitude">
 		
-    </div> 
+		<input type="text" name="uf" id="inputUf" class="form-control" placeholder="UF">
+		
+		<input type="text" name="year" id="inputYear" class="form-control" placeholder="Ano-Base">
+		
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+      </form>
+
+    </div>>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
 	
   </body>

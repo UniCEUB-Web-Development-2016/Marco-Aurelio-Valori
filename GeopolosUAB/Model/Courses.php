@@ -6,13 +6,15 @@ class Courses{
 	private $type_course;
 	private $year_course;
 	private $students_course;
+	private $idCourse;
 	
 	
-	public function __construct($name_course, $type_course, $year_course, $students_course){
+	public function __construct($name_course, $type_course, $year_course, $students_course, $idCourse){
 		$this->set_nameCourse($name_course);
 		$this->set_typeCourse($type_course);
 		$this->set_yearCourse($year_course);
 		$this->set_studentsCourse($students_course);
+		$this->set_courseId($idCourse);
 	}
 	
 	
@@ -31,6 +33,9 @@ class Courses{
 	private function set_studentsCourse($students_course){
 		$this->students_course = $students_course;
 	}
+	private function set_courseId($idCourse){
+		$this->idCourse = $idCourse;
+	}
 	
 	
 	public function get_nameCourse(){
@@ -47,5 +52,8 @@ class Courses{
 	
 	public function get_studentsCourse(){
 		return $this->students_course;
+	}
+	public function get_courseId(){
+		return $this->idCourse;
 	}
 }

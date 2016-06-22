@@ -14,6 +14,8 @@
                 <div>
                     <ul class="nav navbar-nav">
                         <li><a href="home.html">Geopolos UAB</a></li>
+						 <li><a href="mainCourses.html">Cursos</a></li>
+						  <li><a href="mainPolos.html">Polos</a></li>
                        
                         </form>
                     </ul>    

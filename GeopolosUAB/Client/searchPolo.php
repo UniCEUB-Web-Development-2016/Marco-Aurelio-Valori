@@ -7,42 +7,66 @@ $url = "http://localhost/GeopolosUAB/polos/?name=".$_GET['name']."&status=".$_GE
 ."&uf=".$_GET['uf']."&year=".$_GET['year'];
 
 $response = \Httpful\Request::get($url)->send();
-//var_dump($response);
-//echo $response;
+$polos = json_decode($response, true);
+$response = ["polos" => $response];
+?><h1>Resultados</h1>
 
-//header('location:searchPolo3.php');
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>index</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
+	
+	<style>
+	
+	.col-md-4 > a {
+	color: inherit; 
+	text-decoration: none;
+	}
+	
+	</style>
+	
+  </head>
+  <body>
 
-$request_response = json_decode($response->body);
-?><h1>Resultados</h1><?php
-
-foreach($request_response as $value)
-{
-?><div align=left><blockquote><table border="1"><tr><td><p class=lead>Polo: <?php echo $value->name . '<br>';
-
-}?><p></div></td></table>
-
+    <div class ="container">
+		
+		<div class="col-md-4">
+			
+			<table class="table table-hover">
+			<thead>
+			  <tr>
+				<th>Nome</th>
+				<th>Status</th>
+				<th>Situação</th>
+				<th>Longitude</th>
+				<th>Latitude</th>
+				<th>UF</th>
+				<th>Ano-base</th>
+			  </tr>
+			</thead>
+			    <tbody>
+				<?php 
+				foreach($polos as $s){
+					echo "<tr>";
+					echo "<td>" . $s['name'] . "</td>";
+					echo "<td>" . $s['status'] . "</td>";
+					echo "<td>" . $s['situation'] . "</td>";
+					echo "<td>" . $s['lon'] . "</td>";
+					echo "<td>" . $s['lat'] . "</td>";
+					echo "<td>" . $s['uf'] . "</td>";
+					echo "<td>" . $s['year'] . "</td>";
+					echo "<tr>";
+				}
+				?>
+				</tbody>
+			</table>
+		</div>
 <?php 
-foreach($request_response as $value)
-{
-?>	<p class=lead>Status: <?php echo $value->status . '<br>';
-}?><p>
-<?php 
-foreach($request_response as $value)
-{
-?>	<p class=lead>Situatiação: <?php echo $value->situation . '<br>';
-}?><p>
-<?php 
-foreach($request_response as $value)
-{
-?>	<p class=lead>UF: <?php echo $value->uf . '<br>';
-}?><p>
-<?php
-foreach($request_response as $value)
-{
-?>	<p class=lead>Ano-Base: <?php echo $value->year . '<br>';
-}?><p>
-<?php 
-
-
 
 include("footer.php");

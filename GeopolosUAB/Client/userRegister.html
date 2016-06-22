@@ -1,0 +1,44 @@
+ <script src="lib/angular.min.js"></script>
+    <script src="js/signUpPageCtrl.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <style>
+        .jumbotron{
+            width: 800px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+        <div class="jumbotron">
+            <form name="userForm" class="form-signin">
+                <h2 class="form-signin-heading">Registro de Usuário:</h2>
+
+                    <input type="text" name="name" ng-model="user.name" class="form-control" placeholder="Nome" ng-required="true"/>
+                    <br>
+                    <input type="text" name="last_name" ng-model="user.last_name" class="form-control" placeholder="Sobrenome" ng-required="true"/>
+                    <br>
+                    <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="e-mail" ng-required="true"/>
+                    <br>
+                    <input type="text" name="type" ng-model="user.type" class="form-control" placeholder="Tipo" ng-required="true"/>
+                    <br>
+                    <input type="password" name="password" ng-model="user.password" class="form-control" placeholder="Senha" ng-required="true"/>
+                    <br>
+                    
+            </form>
+                    <div ng-show="userForm.name.$invalid && userForm.name.$dirty" class="alert alert-danger">
+                        Informe o seu primeiro nome!!!
+                    </div>
+                    <div ng-show="userForm.last_name.$invalid && userForm.last_name.$dirty" class="alert alert-danger">
+                        Informe o seu sobrenome!!!
+                    </div>
+                    <div ng-show="userForm.email.$invalid && userForm.email.$dirty" class="alert alert-danger">
+                        Informe o seu e-mail!!!
+                    </div>
+                    <div ng-show="userForm.type.$invalid && userForm.type.$dirty" class="alert alert-danger">
+                        Informe seu tipo de usuário!!!
+                    </div>
+                    <div ng-show="userForm.password.$invalid && userForm.password.$dirty" class="alert alert-danger">
+                        Digite sua senha!!!
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="cadastrarUsuario(user)" ng-disabled="userForm.$invalid" type="submit">Registrar</button>
+</div>

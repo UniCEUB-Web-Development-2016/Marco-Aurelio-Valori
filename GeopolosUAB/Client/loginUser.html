@@ -1,0 +1,33 @@
+
+
+                
+ 
+    <style>
+        .jumbotron{
+            width: 800px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+	<?php include("header.php")?>
+        <div class="jumbotron">
+            <form name="usuarioForm" class="form-signin">
+                <h2 class="form-signin-heading">login:</h2>
+
+                    <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Endereço de E-mail" ng-required="true"/>
+                    <br>
+                    <input type="password" name="password" ng-model="user.password" class="form-control" placeholder="Senha" ng-required="true"/>
+                    <br>
+                    
+            </form>
+                    <div ng-show="usuarioForm.email.$invalid && usuarioForm.email.$dirty" class="alert alert-danger">
+                        Informe seu e-mail!!!
+                    </div>
+                    <div ng-show="usuarioForm.passwoard.$invalid && usuarioForm.senha.$dirty" class="alert alert-danger">
+                        Insira sua senha!!!
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="" ng-disabled="usuarioForm.$invalid" type="submit">Logar</button>
+        </div>
+
+   

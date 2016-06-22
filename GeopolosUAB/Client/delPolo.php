@@ -28,19 +28,27 @@
 
     <div class="container">
 
-    <form class="form-signin" action="delCourse1.php" method="post">
-        <h2 class="form-signin-heading">Exclusão de Curso</h2>
+    <form class="form-signin" action="delPolo1.php" method="post">
+        <h2 class="form-signin-heading">Exclusão de Polo</h2>
         
-        <input type="text" name="name" id="inputName" class="form-control" placeholder="Curso" required autofocus>
+        <input type="text" name="name" id="inputName" class="form-control" placeholder="Polo" required autofocus>
 
-        <input type="text" name="type"id="inputType" class="form-control" placeholder="Tipo" required autofocus>
+        <input type="text" name="status"id="inputStatus" class="form-control" placeholder="Status (AA-Apto / AP-Apto com Pendências / FR - Fase de Regularização / NA - Não Apto)" required autofocus>
 
-        <input type="text" name="year" id="inputYear" class="form-control" placeholder="Ano-Base" required autofocus>
+        <input type="text" name="situation" id="inputSituation" class="form-control" placeholder="Situação (Ativo / Desligado / Inativo / Provisório)" required autofocus>
 		
-		<input type="text" name="students" id="inputStudents" class="form-control" placeholder="Estudantes" required autofocus>
-
-        <button class="btn btn-primary btn-lg" type="submit">Save</button><!--<input type="hidden" name="codStore" value="<?php //echo $_SESSION['CurrentUser']; ?>" />-->
-    </form>
+		<input type="text" name="lon" id="inputLon" class="form-control" placeholder="Longitude" required autofocus>
+		
+		<input type="text" name="lat" id="inputLat" class="form-control" placeholder="Latitude" required autofocus>
+		
+		<input type="text" name="uf" id="inputUf" class="form-control" placeholder="UF" required autofocus>
+		
+		<input type="text" name="year" id="inputYear" class="form-control" placeholder="Ano-Base" required autofocus>
+		
+		
+				
+		<button class="btn btn-primary btn-lg" type="submit">Save</button>
+        </form>
 		
 		
     </div> 

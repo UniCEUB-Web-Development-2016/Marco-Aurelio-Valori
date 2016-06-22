@@ -16,6 +16,14 @@
                            <td>Situação:</td>
                            <td><input class="form-control" type="text" name="situation"></td>
                        </tr>
+					   <tr>
+                           <td>Longitude:</td>
+                           <td><input class="form-control" type="text"  name="lon" ></td> 
+                       </tr> 
+					   <tr>
+                           <td>Latitude:</td>
+                           <td><input class="form-control" type="text"  name="lat" ></td> 
+                       </tr> 
                         <tr>
                            <td>Ano-Base:</td>
                            <td><input class="form-control" type="text"  name="year" ></td> 
